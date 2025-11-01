@@ -1,0 +1,128 @@
+[
+  {
+    "name": "A9 Po",
+    "price": 999,
+    "category": "Electronics",
+    "description": "High-quality wireless earbuds with crystal-clear sound and long battery life.",
+    "stock": "In Stock",
+    "rating": 4.7,
+    "image": "https://i.ibb.co.com/qPckWXs/IMG-7976.jpg"
+  },
+  {
+    "name": "Airpods Pro Second Gen",
+    "price": 720,
+    "category": "Electronics",
+    "description": "Next-gen Airpods with active noise cancellation and immersive audio.",
+    "stock": "In Stock",
+    "rating": 4.8,
+    "image": "https://i.ibb.co.com/Jw73Yv0P/IMG-7988.jpg"
+  },
+  {
+    "name": "Xiaomi Airpods",
+    "price": 380,
+    "category": "Electronics",
+    "description": "Affordable Xiaomi wireless earbuds with clear sound and comfortable fit.",
+    "stock": "In Stock",
+    "rating": 4.5,
+    "image": "https://i.ibb.co.com/ymhCT3YH/IMG-8367.jpg"
+  },
+  {
+    "name": "OnePlus Airpods",
+    "price": 380,
+    "category": "Electronics",
+    "description": "Reliable wireless earbuds with smooth connectivity and balanced sound.",
+    "stock": "In Stock",
+    "rating": 4.6,
+    "image": "https://i.ibb.co.com/spnXL2YQ/IMG-8384.jpg"
+  },
+  {
+    "name": "Oraimo Airpods",
+    "price": 400,
+    "category": "Electronics",
+    "description": "Compact earbuds with strong bass and long-lasting battery life.",
+    "stock": "In Stock",
+    "rating": 4.4,
+    "image": "https://i.ibb.co.com/tPhDxq2s/IMG-8356.jpg"
+  },
+  {
+    "name": "G63 Smart Sound Box",
+    "price": 550,
+    "category": "Electronics",
+    "description": "Portable smart speaker with powerful sound and Bluetooth connectivity.",
+    "stock": "In Stock",
+    "rating": 4.7,
+    "image": "https://i.ibb.co.com/5WkFM0y8/IMG-8322.jpg"
+  },
+  {
+    "name": "M20 TWS Wireless Bluetooth Earbuds",
+    "price": 450,
+    "category": "Electronics",
+    "description": "High-performance TWS earbuds with deep bass and smooth pairing.",
+    "stock": "In Stock",
+    "rating": 4.6,
+    "image": "https://i.ibb.co.com/JFGM3Cw5/IMG-8347.jpg"
+  },
+  {
+    "name": "Recrsi RE-NY060 (200 hour backup)",
+    "price": 749,
+    "category": "Electronics",
+    "description": "Long-lasting earbuds with 200-hour backup and premium sound quality.",
+    "stock": "In Stock",
+    "rating": 4.7,
+    "image": "https://i.ibb.co.com/DgPk81XZ/IMG-8006.jpg"
+  },
+  {
+    "name": "Limited Edition! OLEVS গোল্ডেন লাক্সারি স্কেলেটন ডায়াল মেনস ওয়াচ - স্টেইনলেস স্টিল",
+    "price": 480,
+    "category": "Watches",
+    "description": "Luxury skeleton dial watch with golden finish and stainless steel body.",
+    "stock": "In Stock",
+    "rating": 4.8,
+    "image": "https://i.ibb.co.com/ns02VP0t/IMG-8450.jpg"
+  },
+  {
+    "name": "DILLA Stealthy Sophistication: লিমিটেড এডিশন কালো লেদার স্ট্র্যাপ কোয়ার্টজ ওয়াচ",
+    "price": 460,
+    "category": "Watches",
+    "description": "Limited edition black leather strap watch exuding elegance and style.",
+    "stock": "In Stock",
+    "rating": 4.7,
+    "image": "https://i.ibb.co.com/n8YX7vsY/IMG-8451.jpg"
+  },
+  {
+    "name": "DILLA Limited Edition! কালো স্টেইনলেস স্টিল মাল্টি-ফাংশন মেনস ওয়াচ",
+    "price": 430,
+    "category": "Watches",
+    "description": "Multi-function men’s watch in black stainless steel for modern professionals.",
+    "stock": "In Stock",
+    "rating": 4.8,
+    "image": "https://i.ibb.co.com/zhTh5Qxv/IMG-8447.jpg"
+  },
+  {
+    "name": "Q&Q Timeless Elegance Limited Edition ঘড়ি | গোল্ডেন কেস ও ব্রাউন লেদার স্ট্র্যাপ",
+    "price": 499,
+    "category": "Watches",
+    "description": "Golden case watch with brown leather strap, combining classic elegance and comfort.",
+    "stock": "In Stock",
+    "rating": 4.7,
+    "image": "https://i.ibb.co.com/k2cZk5J9/IMG-8445.jpg"
+  },
+  {
+    "name": "Ayatul Kursi Bracelet",
+    "price": 350,
+    "category": "Accessories",
+    "description": "Elegant bracelet engraved with Ayatul Kursi for daily blessings.",
+    "stock": "In Stock",
+    "rating": 4.9,
+    "image": "https://i.ibb.co.com/23s8Ljbp/att-t4-QDXo-Mix-Sxdc-YRb-WO7-Ifugy-XN3hb-PJ-LV4-G38i-GNE.jpg"
+  },
+  {
+    "name": "Gucci Stainless Steel Bracelet",
+    "price": 350,
+    "category": "Accessories",
+    "description": "Stylish Gucci bracelet made from premium stainless steel.",
+    "stock": "In Stock",
+    "rating": 4.8,
+    "image": "https://i.ibb.co.com/YB379Rc2/att-GW874-Bfl-K1-WSm-FWr-Fdzgu-Xy9-Su-Ze-TIulo-Kb-S6h25-RM.jpg"
+  }
+]
