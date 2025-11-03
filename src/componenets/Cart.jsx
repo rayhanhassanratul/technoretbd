@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineClose } from "react-icons/ai"; // React Icons থেকে X icon
+import { AiOutlineClose } from "react-icons/ai";
 
 const Cart = ({ carts, setCarts }) => {
   const [location, setLocation] = useState("");
   const [deliveryCharge, setDeliveryCharge] = useState(0);
   const [total, setTotal] = useState(0);
 
+  // Subtotal calculation
   const subtotal = carts.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -40,9 +41,33 @@ const Cart = ({ carts, setCarts }) => {
   const handleLocationChange = (e) => {
     const loc = e.target.value;
     setLocation(loc);
-    if (loc === "Dhaka") setDeliveryCharge(60);
-    else if (loc === "Outside Dhaka") setDeliveryCharge(120);
+    if (loc === "Dhaka") setDeliveryCharge(80);
+    else if (loc === "Outside Dhaka") setDeliveryCharge(130);
     else setDeliveryCharge(0);
+  };
+
+  const confirmOrder = () => {
+    if (carts.length === 0) return alert("Your cart is empty!");
+
+    // Prepare order details
+    const orderDetails = carts
+      .map(
+        (item, i) =>
+          `${i + 1}. ${item.name} x${item.quantity} = ৳${
+            item.price * item.quantity
+          }`
+      )
+      .join("\n");
+
+    const message = encodeURIComponent(
+      `Hello! I want to place an order:\n\n${orderDetails}\n\nDelivery Location: ${
+        location || "Not Selected"
+      }\nDelivery Charge: ৳${deliveryCharge}\nTotal: ৳${total}`
+    );
+
+    // Messenger link with pre-filled message
+    const messengerLink = `https://m.me/61580720459983?text=${message}`;
+    window.open(messengerLink, "_blank");
   };
 
   return (
@@ -71,7 +96,7 @@ const Cart = ({ carts, setCarts }) => {
               </div>
             </div>
 
-            {/* Quantity + Remove Icon */}
+            {/* Quantity + Remove */}
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => decreaseQty(index)}
@@ -104,6 +129,7 @@ const Cart = ({ carts, setCarts }) => {
 
       {carts.length > 0 && (
         <div className="mt-6 space-y-3">
+          {/* Delivery Location */}
           <select
             value={location}
             onChange={handleLocationChange}
@@ -114,6 +140,7 @@ const Cart = ({ carts, setCarts }) => {
             <option value="Outside Dhaka">Outside Dhaka</option>
           </select>
 
+          {/* Subtotal & Delivery */}
           <div className="flex justify-between text-gray-700 mt-2">
             <p>Subtotal:</p>
             <p className="font-semibold">৳{subtotal}</p>
@@ -127,7 +154,11 @@ const Cart = ({ carts, setCarts }) => {
             <p>৳{total}</p>
           </div>
 
-          <button className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl shadow-md">
+          {/* Confirm Order */}
+          <button
+            onClick={confirmOrder}
+            className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl shadow-md transition-all"
+          >
             Confirm Order
           </button>
         </div>
