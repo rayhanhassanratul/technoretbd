@@ -3,58 +3,44 @@ import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-800 text-white shadow-lg">
-      {" "}
-      {/* ব্যাকগ্রাউন্ড ডার্ক গ্রে এবং শ্যাডো যোগ করা হলো */}
+    <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-lg z-50 backdrop-blur-md bg-opacity-90 transition-all duration-300 mb-10">
+      {/* ব্যাকগ্রাউন্ডে সামান্য ট্রান্সপারেন্সি ও ব্লার ইফেক্ট */}
       <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo and Brand Name */}
         <div className="flex items-center space-x-3">
-          {" "}
-          {/* লোগো এবং টেক্সট এলাইন করার জন্য flex এবং space-x-3 */}
           <img
             src={logo}
             alt="Technoret BD Logo"
-            className="h-8 w-8 rounded-full object-cover"
-          />{" "}
-          {/* h-8 এবং w-8 দিয়ে সাইজ ঠিক করা হলো, rounded-full এবং object-cover যোগ করা হলো */}
-          <h2 className="text-xl font-extrabold tracking-wider">
+            className="h-10 w-10 rounded-full object-cover ring-2 ring-cyan-500"
+          />
+          <h2 className="text-xl font-extrabold tracking-wider text-cyan-400">
             Technoret BD
           </h2>
         </div>
 
         {/* Menu Links */}
         <ul className="hidden md:flex space-x-8 font-medium">
-          {" "}
-          {/* gap-8 এর বদলে space-x-8, font-medium যোগ করা হলো */}
-          <li className="hover:text-cyan-400 transition duration-300 cursor-pointer">
-            Home
-          </li>
-          <li className="hover:text-cyan-400 transition duration-300 cursor-pointer">
-            Products
-          </li>
-          <li className="hover:text-cyan-400 transition duration-300 cursor-pointer">
-            Offers
-          </li>
-          <li className="hover:text-cyan-400 transition duration-300 cursor-pointer">
-            About
-          </li>
-          <li className="hover:text-cyan-400 transition duration-300 cursor-pointer">
-            Contact
-          </li>
+          {["Home", "Products", "Offers", "About", "Contact"].map((item) => (
+            <li
+              key={item}
+              className="hover:text-cyan-400 transition duration-300 cursor-pointer relative group"
+            >
+              {item}
+              {/* underline animation */}
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+            </li>
+          ))}
         </ul>
 
         {/* CTA Button and Mobile Menu */}
         <div className="flex items-center space-x-4">
-          <button className="bg-cyan-600 hover:bg-cyan-500 px-4 py-2 rounded-lg font-semibold transition duration-300 shadow-md">
-            {" "}
-            {/* py-1 এর বদলে py-2 এবং rounded-md এর বদলে rounded-lg */}
+          <button className="bg-cyan-600 hover:bg-cyan-500 px-4 py-2 rounded-lg font-semibold transition duration-300 shadow-md hover:shadow-cyan-500/30">
             Cart
           </button>
 
           {/* Mobile Menu icon */}
-          <button className="md:hidden text-2xl focus:outline-none">
-            {" "}
-            {/* Focus রিমুভ করার জন্য focus:outline-none যোগ করা হলো */}☰
+          <button className="md:hidden text-3xl focus:outline-none hover:text-cyan-400 transition duration-300">
+            ☰
           </button>
         </div>
       </div>

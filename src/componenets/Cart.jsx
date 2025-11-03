@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
-// framer-motion থেকে AnimatePresence এবং motion কম্পোনেন্ট ইম্পোর্ট করতে হবে
 import { AnimatePresence } from "framer-motion";
 
-const Cart = ({ carts }) => {
+const Cart = ({ carts, setCarts }) => {
   const [location, setLocation] = useState("");
   const [deliveryCharge, setDeliveryCharge] = useState(0);
   const [total, setTotal] = useState(0);
   const [showTotal, setShowTotal] = useState(false);
 
-  const subtotal = carts.reduce((acc, item) => acc + Number(item.price), 0);
+  const subtotal = carts.reduce(
+    (acc, item) => acc + Number(item.price) * item.quantity,
+    0
+  );
 
   useEffect(() => {
     if (location === "inside") setDeliveryCharge(80);
-    else if (location === "outside") setDeliveryCharge(100);
+    else if (location === "outside") setDeliveryCharge(130);
     else setDeliveryCharge(0);
   }, [location]);
 
@@ -20,6 +22,13 @@ const Cart = ({ carts }) => {
     setTotal(subtotal + deliveryCharge);
   }, [subtotal, deliveryCharge]);
 
+  // 🗑️ Remove item from cart
+  const handleRemove = (index) => {
+    const updatedCart = carts.filter((_, i) => i !== index);
+    setCarts(updatedCart);
+  };
+
+  // 📨 Place order via Messenger
   const handlePlaceOrder = () => {
     if (!location) {
       alert("Please select your delivery location!");
@@ -27,12 +36,15 @@ const Cart = ({ carts }) => {
     }
 
     const message = `Order Details:\n${carts
-      .map((item) => `${item.name} - ${item.price}৳`)
+      .map(
+        (item) =>
+          `${item.name} x ${item.quantity} = ${item.price * item.quantity}৳`
+      )
       .join("\n")}\n\nDelivery: ${
       location === "inside"
         ? "Dhaka (Inside City) - 80৳"
         : "Outside Dhaka - 130৳"
-    }\n\nTotal: ${total}৳`; // মেসেজটিকে আরও পরিষ্কার করা হলো
+    }\n\nTotal: ${total}৳`;
 
     const pageID = "61580720459983";
     const messengerLink = `https://m.me/${pageID}?text=${encodeURIComponent(
@@ -55,33 +67,44 @@ const Cart = ({ carts }) => {
         </p>
       ) : (
         <>
-          {/* Cart List */}
+          {/* Cart Items */}
           <ul className="divide-y divide-gray-200 mb-4 max-h-96 overflow-y-auto">
             {carts.map((item, index) => (
               <li
                 key={index}
-                className="py-3 flex items-center space-x-4 hover:bg-gray-50 transition duration-150"
+                className="py-3 flex items-center space-x-4 hover:bg-gray-50 transition duration-150 relative"
               >
                 <img
                   src={item.image}
                   alt={item.name}
                   className="w-16 h-16 object-cover rounded-lg shadow-sm"
                 />
-                <div className="flex-1 flex justify-between items-center">
-                  <span className="font-medium text-gray-800 truncate pr-2">
-                    {item.name}
-                  </span>
-                  <div className="flex flex-col items-end">
-                    <span className="text-lg font-semibold text-cyan-700">
-                      {item.price}৳
-                    </span>
 
-                    {/* ⭐ পরিবর্তিত লজিক: কার্টের আইটেম মানেই In Stock দেখানো হচ্ছে ⭐ */}
+                <div className="flex-1 flex justify-between items-center">
+                  <div>
+                    <span className="font-medium text-gray-800 block truncate pr-2">
+                      {item.name}{" "}
+                      <span className="text-sm text-gray-500">
+                        x{item.quantity}
+                      </span>
+                    </span>
                     <span className="text-green-600 text-sm font-medium">
                       In Stock
                     </span>
                   </div>
+                  <span className="text-lg font-semibold text-cyan-700">
+                    {item.price * item.quantity}৳
+                  </span>
                 </div>
+
+                {/* 🗑️ Remove Button */}
+                <button
+                  onClick={() => handleRemove(index)}
+                  className="absolute top-2 right-2 text-red-500 hover:text-red-700 transition"
+                  title="Remove item"
+                >
+                  ❌
+                </button>
               </li>
             ))}
           </ul>
@@ -130,7 +153,7 @@ const Cart = ({ carts }) => {
             Place Order via Messenger
           </button>
 
-          {/* Animated Total Result */}
+          {/* Confirmation animation */}
           <AnimatePresence>
             {showTotal && (
               <motion.div
